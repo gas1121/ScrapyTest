@@ -1,3 +1,9 @@
+# virtualenv environment
+\[Bb]in
+\[Ll]ib
+\[Ss]cripts
+pip-selfcheck.json
+
 *.py[cod]
 
 # C extensions
