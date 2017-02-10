@@ -1,7 +1,7 @@
 import scrapy
 
 
-class QuotesSpider(scrapy.Spider):
+class TohoSpider(scrapy.Spider):
     name = "toho"
     start_urls = ['https://hlo.tohotheater.jp/net/schedule/076/TNPI2000J01.do']
     #start_urls = ['https://hlo.tohotheater.jp/net/ticket/076/TNPI2040J03.do?site_cd=076&jyoei_date=20170209&gekijyo_cd=0761&screen_cd=10&sakuhin_cd=014183&pf_no=5&fnc=1&pageid=2000J01&enter_kbn=']

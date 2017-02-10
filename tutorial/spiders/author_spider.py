@@ -1,7 +1,7 @@
 import scrapy
 
 
-class QuotesSpider(scrapy.Spider):
+class AuthorSpider(scrapy.Spider):
     name = "author"
     start_urls = ['http://quotes.toscrape.com/']
 
