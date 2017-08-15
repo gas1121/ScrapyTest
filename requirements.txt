@@ -24,6 +24,7 @@ pyopenssl==17.2.0         # via scrapy, service-identity
 queuelib==1.4.2           # via scrapy
 scrapy-splash==0.7.2
 scrapy==1.4.0
+selenium==3.5.0
 service-identity==17.0.0  # via scrapy
 six==1.10.0               # via automat, cryptography, parsel, pyopenssl, scrapy, w3lib
 twisted==17.5.0           # via scrapy

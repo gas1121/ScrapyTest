@@ -55,7 +55,8 @@ SPIDER_MIDDLEWARES = {
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'tutorial.middlewares.middleware.SeleniumDownloaderMiddleware': None,
+    #'tutorial.middlewares.middleware.SeleniumDownloaderMiddleware': 550,
+    #'tutorial.middlewares.middleware.SplashRequestMiddleware': 550,
     # Splash
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
