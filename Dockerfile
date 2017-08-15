@@ -1,8 +1,20 @@
-FROM library/python:alpine
+FROM library/python
 MAINTAINER gas1121 <jtdzhx@gmail.com>
 
-RUN apk update
-RUN apk add python-dev curl libxml2-dev libxslt-dev \
-    libffi-dev gcc musl-dev libgcc openssl-dev
-RUN curl https://bootstrap.pypa.io/get-pip.py | python
-RUN pip install scrapy selenium
+# os setup
+RUN apt-get update && apt-get -y install \
+  python-lxml \
+  build-essential \
+  libssl-dev \
+  libffi-dev \
+  python-dev \
+  libxml2-dev \
+  libxslt1-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /app
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+
+CMD scrapy crawl quotes

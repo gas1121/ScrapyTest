@@ -1,20 +1,6 @@
 version: "2"
 services:
-  phantomjs:
-    image: wernight/phantomjs:2
-    ports:
-      - "8910:8910"
-    command: phantomjs --webdriver=8910
-  my-scrapy-in:
-    build:
-     context: .
-     dockerfile: Dockerfile.in
-    volumes: 
-      - .:/app
-    working_dir: /app
-    depends_on: 
-      - phantomjs
-  my-scrapy:
+  crawler:
     build:
       context: .
       dockerfile: Dockerfile
@@ -22,4 +8,17 @@ services:
       - .:/app
     working_dir: /app
     depends_on: 
+      - splash
       - phantomjs
+  phantomjs:
+    image: wernight/phantomjs:2
+    ports:
+      - "8910:8910"
+    command: phantomjs --webdriver=8910
+  splash:
+    image: scrapinghub/splash:2.3.2
+    ports:
+      - 8050:8050
+    restart: always
+    # add --maxrss 1 GB on to normal docker entrypoint command
+    entrypoint: python3 /app/bin/splash --proxy-profiles-path /etc/splash/proxy-profiles --js-profiles-path /etc/splash/js-profiles --filters-path /etc/splash/filters --lua-package-path /etc/splash/lua_modules/?.lua --maxrss 1000
